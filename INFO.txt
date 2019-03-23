@@ -14,4 +14,4 @@ Déroulement coté user :
     Il doit essayer de deviner l'état des variables a l'etat suivant !
     Il drag and drop l'état des variables dans une zone
     On teste si c'est la bonne valeur si oui -> on déplace la fléche.
-    On continu jusqu'a la fin du programme.
+    On continue jusqu'a la fin du programme.
