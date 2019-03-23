@@ -10,7 +10,7 @@
               LRow
                 LCol(xs6)
                   v-text-field(
-                    v-model="name"
+                    v-model="variable"
                     label="Nom"
                     hide-details)
                 LCol(xs6)
@@ -21,7 +21,7 @@
             v-card-actions
               v-spacer
               v-scale-transition
-                v-btn(v-if="name && value" icon @click="add")
+                v-btn(v-if="variable && value" icon @click="add")
                   v-icon
                     | add
               v-spacer
@@ -31,12 +31,12 @@
             h2.title Mémoire
           v-card-text
             LRow(
-              v-for="({ name, value }, i) in memory"
+              v-for="({ variable, value }, i) in memory"
               :key="i"
               justify-center
               align-center)
               LCol(xs2)
-                  sup.d-flex.justify-end(style="width: 100%") {{ name }}
+                  sup.d-flex.justify-end(style="width: 100%") {{ variable }}
               LCol()
                 v-text-field(
                   :label="value"
@@ -66,13 +66,13 @@ export default {
   }),
   methods: {
     add () {
-      const name = this.name
+      const variable = this.variable
       const value = this.value
       this.memory.push({
-        name,
+        variable,
         value
       })
-      this.name = ''
+      this.variable = ''
       this.value = ''
     }
   }
