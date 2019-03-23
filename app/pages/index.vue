@@ -42,6 +42,7 @@
               LCol()
                 v-text-field(
                   :value="value"
+                    @input="memory[i].value = $event"
                   hide-details
                   :solo="state"
                   :disabled="state")
