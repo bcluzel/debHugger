@@ -1,5 +1,5 @@
 export const baseState = {
-  isActive: false
+  isActive: true
 }
 
 export const state = () => (baseState)

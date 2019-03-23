@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _3b28ac9e = () => interopDefault(import('../pages/faq.vue' /* webpackChunkName: "pages/faq" */))
-const _629b701f = () => interopDefault(import('../pages/rdv.vue' /* webpackChunkName: "pages/rdv" */))
-const _b0eb56a6 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _7741ab66 = () => interopDefault(import('../pages/account.vue' /* webpackChunkName: "pages/account" */))
+const _12cd8eb0 = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
+const _0cb05072 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
 
@@ -81,16 +81,16 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
-      path: "/faq",
-      component: _3b28ac9e,
-      name: "faq"
+      path: "/account",
+      component: _7741ab66,
+      name: "account"
     }, {
-      path: "/rdv",
-      component: _629b701f,
-      name: "rdv"
+      path: "/cart",
+      component: _12cd8eb0,
+      name: "cart"
     }, {
       path: "/",
-      component: _b0eb56a6,
+      component: _0cb05072,
       name: "index"
     }],
 

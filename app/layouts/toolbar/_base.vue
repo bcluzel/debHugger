@@ -2,7 +2,8 @@
   v-toolbar(
     app
     :flat="isFlat"
-    style="z-index: 5")
+    style="z-index: 5"
+    clipped-left)
     slot
     template(
       v-if="tabs"

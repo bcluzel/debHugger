@@ -8,7 +8,7 @@
     hint="Prochainement : carte intéractive"
     persistent-hint)
   v-flex
-    div#mapid(style="height: 500px; z-index: 1")
+    div#mapid(style="height: 200px; z-index: 1")
 </template>
 
 <script>
@@ -40,17 +40,10 @@ export default {
     map.on('locationfound', e => {
       var radius = e.accuracy * .4
       Leaflet.marker(e.latlng).addTo(map)
-          .bindPopup(`You're here. ${radius} meters approximatively.`).openPopup()
+          .bindPopup(`Vous êtes ici, à ${radius} mètres près.`).openPopup()
       Leaflet.circle(e.latlng, radius).addTo(map)
     })
     map.on('locationerror', ({ message }) => alert(message))
-
-    var littleton = Leaflet.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
-    denver    = Leaflet.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
-    aurora    = Leaflet.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
-    golden    = Leaflet.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
-    var cities = L.layerGroup([littleton, denver, aurora, golden]);
-
   }
 }
 </script>
