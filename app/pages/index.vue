@@ -2,7 +2,33 @@
   LMain(style="max-width: 800px")
     LRow
       LCol(xs6)
-        self-form(@submit.prevent="add")
+        LRow(justify-end)
+          v-switch(label="Mode liste" v-model="mode")
+        v-card(v-if="mode")
+          v-card-title.text-xs-center.d-block
+            h2.title Ajouter une nouvelle liste
+          v-card-text
+            LRow(wrap)
+              LCol(xs6)
+                v-text-field(
+                  v-model="variable"
+                  label="Nom"
+                  hide-details)
+              LCol(xs12)
+                v-combobox(
+                  multiple
+                  chips
+                  v-model="value"
+                  label="Valeurs"
+                  hide-details)
+          v-card-actions
+            v-spacer
+            v-scale-transition
+              v-btn(v-if="variable && value" icon @click="add")
+                v-icon
+                  | add
+            v-spacer
+        self-form(@submit.prevent="add" v-else)
           v-card
             v-card-title.text-xs-center.d-block
               h2.title Ajouter une nouvelle variable
@@ -38,7 +64,15 @@
               LCol(xs2)
                   sup.d-flex.justify-end(style="width: 100%") {{ variable }}
               LCol()
+                v-combobox(
+                  v-if="Array.isArray(value)"
+                  :label="variable"
+                  multiple
+                  chips
+                  single-line
+                  :value="value")
                 v-text-field(
+                  v-else
                   :label="value"
                   hide-details
                   :solo="state"
@@ -67,7 +101,8 @@ export default {
   data: () => ({
     variable: null,
     value: null,
-    memory: []
+    memory: [],
+    mode: false
   }),
   methods: {
     ...getMethods('debhugger'),
