@@ -52,6 +52,9 @@
 <script>
 import mixinPage from '@/mixins/page'
 import SelfForm from '@/components/form'
+import {
+  getMethods
+} from '@/storeInterface'
 
 export default {
   components: {
@@ -65,6 +68,7 @@ export default {
     memory: []
   }),
   methods: {
+    ...getMethods('debhugger'),
     add () {
       const variable = this.variable
       const value = this.value
@@ -74,6 +78,7 @@ export default {
       })
       this.variable = ''
       this.value = ''
+      this.nextStep()
     }
   }
 }

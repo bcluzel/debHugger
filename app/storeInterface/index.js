@@ -3,6 +3,7 @@ import vuex from 'vuex'
 
 import * as auth from '@/store/auth'
 import * as connectivity from '@/store/connectivity'
+import * as debhugger from '@/store/debhugger'
 import * as drawer from '@/store/drawer'
 import * as illicourse from '@/store/illicourse'
 import * as nav from '@/store/nav'
@@ -17,6 +18,7 @@ const modules = {
   state: {
     auth: auth.baseState,
     connectivity: connectivity.baseState,
+    debhugger: debhugger.baseState,
     drawer: drawer.baseState,
     illicourse: illicourse.baseState,
     nav: nav.baseState,
@@ -30,6 +32,7 @@ const modules = {
   mutations: {
     auth: auth.mutations,
     connectivity: connectivity.mutations,
+    debhugger: debhugger.mutations,
     drawer: drawer.mutations,
     illicourse: illicourse.mutations,
     nav: nav.mutations,
@@ -43,6 +46,7 @@ const modules = {
   actions: {
     auth: auth.actions,
     connectivity: connectivity.actions,
+    debhugger: debhugger.actions,
     drawer: drawer.actions,
     illicourse: illicourse.actions,
     nav: nav.actions,
@@ -60,6 +64,9 @@ const modules = {
     connectivity: Object.keys(connectivity.getters)
       .filter(_ => connectivity.getters[_].length !== 4)
       .reduce((obj, _) => (obj[_] = connectivity.getters[_], obj), {}),
+    debhugger: Object.keys(debhugger.getters)
+      .filter(_ => debhugger.getters[_].length !== 4)
+      .reduce((obj, _) => (obj[_] = debhugger.getters[_], obj), {}),
     drawer: Object.keys(drawer.getters)
       .filter(_ => drawer.getters[_].length !== 4)
       .reduce((obj, _) => (obj[_] = drawer.getters[_], obj), {}),
@@ -95,6 +102,9 @@ const modules = {
     connectivity: Object.keys(connectivity.getters)
       .filter(_ => connectivity.getters[_].length === 4)
       .reduce((obj, _) => (obj[_] = connectivity.getters[_], obj), {}),
+    debhugger: Object.keys(debhugger.getters)
+      .filter(_ => debhugger.getters[_].length === 4)
+      .reduce((obj, _) => (obj[_] = debhugger.getters[_], obj), {}),
     drawer: Object.keys(drawer.getters)
       .filter(_ => drawer.getters[_].length === 4)
       .reduce((obj, _) => (obj[_] = drawer.getters[_], obj), {}),
