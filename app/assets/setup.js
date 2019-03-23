@@ -1,4 +1,4 @@
-export const title = `DebugHugger`
+export const title = `DebHugger`
 export const links = {
   'Accueil': '/'
 }

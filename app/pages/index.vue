@@ -54,6 +54,9 @@
 <script>
 import mixinPage from '@/mixins/page'
 import SelfForm from '@/components/form'
+import {
+  getMethods
+} from '@/storeInterface'
 
 export default {
   components: {
@@ -67,6 +70,7 @@ export default {
     memory: []
   }),
   methods: {
+    ...getMethods('debhugger'),
     add () {
       const variable = this.variable
       const value = this.value
@@ -78,10 +82,10 @@ export default {
       })
       this.variable = ''
       this.value = ''
+      this.nextStep()
     },
     changeState (i) {
-      if (this.memory[i].state) this.memory[i].state = false
-      else this.memory[i].state = true 
+      this.memory[i].state = !this.memory[i].state
     },
     getDict () {
       const memory_size = length(memory)
