@@ -1,4 +1,4 @@
-/* 
+/*
  * File containing fucntions that need to be implemented
  * */
 
@@ -8,6 +8,7 @@ var sourceCode = `
 i = 1
 `;
 
+var current_instruction = 0;
 
 
 // @param memory : dictionnaire
@@ -19,16 +20,22 @@ function check_memory(memory) {
 
 // TODO : implement
 function next_instruction() {
-
+	current_instruction += 1;
 }
 
-function dict_equals(dict1, dict2) {
-	return True;
+function dict_equals(dic1, dic2) {
+	let rep = 1;
+	for (let propriety in dic1) {
+	  if(dic1[propriety] != dic2[propriety]){
+	    rep = 0;
+	  }
+	}
+	return rep;
 }
 
-/* 
+/*
  * Tell the player he won.
  * */
 function finish() {
-
+	
 }
