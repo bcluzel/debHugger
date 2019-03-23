@@ -5,7 +5,6 @@
 // Global varibles
 
 var sourceCode = `
-<<<<<<< HEAD
 i = 1
 i = i + 1
 while (i<4) {
@@ -14,10 +13,6 @@ while (i<4) {
 if (i > 6) {
 	answer = "HackBX"
 }
-=======
-i = 0
-i++
->>>>>>> ef668d9a9ab8c854b9c4f696c1cb48946683f017
 `;
 
 var instructions = [
