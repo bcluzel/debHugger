@@ -5,8 +5,14 @@
 // Global varibles
 
 var sourceCode = `
-i = 0
-i++
+i = 1
+i = i + 1
+while (i<4) {
+	i +=1
+}
+if (i > 6) {
+	answer = "HackBX"
+}
 `;
 
 var instructions = [
@@ -54,5 +60,5 @@ function dict_equals(dic1, dic2) {
  * TODO : implement
  * */
 function finish() {
-	
+
 }
