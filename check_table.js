@@ -6,6 +6,13 @@
 
 var sourceCode = `
 i = 1
+i = i + 1
+while (i<4) {
+	i +=1
+}
+if (i > 6) {
+	answer = "HackBX"
+}
 `;
 
 var current_instruction = 0;
@@ -37,5 +44,5 @@ function dict_equals(dic1, dic2) {
  * Tell the player he won.
  * */
 function finish() {
-	
+
 }
