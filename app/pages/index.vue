@@ -52,7 +52,7 @@
                   v-icon(v-else)
                     | check
               LCol(xs2)
-                v-btn(icon @click="valuePop(i)")
+                v-btn(icon @dblclick="valuePop(i)")
                   v-icon()
                     | remove
 </template>
