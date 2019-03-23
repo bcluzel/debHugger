@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp -r settings/_theme.styl ../node_modules/vuetify/src/stylus/settings/_theme.styl
+cp -r settings/_variables.styl ../node_modules/vuetify/src/stylus/settings/_variables.styl

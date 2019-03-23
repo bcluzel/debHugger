@@ -1,0 +1,118 @@
+<template lang="pug">
+  v-flex(xs12)
+    v-card
+      v-card-title
+        LRow(align-items justify-content)
+          v-text-field(
+            v-model="searchModel"
+            :label="loading ? 'Chargement' : 'Rechercher'"
+            single-line
+            hide-details
+            hide-actions
+            :loading="loading"
+            :disabled="loading"
+            @keypress.enter="triggerSearch")
+          v-btn(
+            @click="triggerSearch"
+            icon)
+            v-icon
+              | search
+      v-card-text
+        v-data-table(
+          v-if="headerProp"
+          :pagination.sync="pagination"
+          hide-headers
+          :headers="[{ value: headerProp, sortable: true }]"
+          :search="search"
+          :items="items"
+          :item-key="headerProp"
+          rows-per-page-text="Lignes par page"
+          no-data-text="Aucune donnée"
+          must-sort)
+          template(
+            v-slot:items="{ item }")
+            tr
+              td.text-xs-left
+                | {{ item[headerProp] }}
+              td.text-xs-right
+                self-button(
+                  :item="item"
+                  :currentItem="currentItem"
+                  @update:currentItem="$emit('update:currentItem', $event)"
+                  :entityName="entityName")
+          template(
+            slot="pageText"
+            slot-scope="{ pageStart, pageStop, itemsLength }")
+            | {{ pageStart }} - {{ pageStop }}, Total : {{ itemsLength }}
+</template>
+
+<script>
+import {
+  getState,
+  getMethods
+} from '@/storeInterface/'
+import Button from './_button'
+
+export default {
+  components: {
+    'self-button': Button
+  },
+  props: {
+    headerProp: {
+      type: String,
+      required: true
+    },
+    entityName: {
+      type: String,
+      required: true
+    },
+    currentItem: {
+      type: Object,
+      default: null
+    }
+  },
+  data: () => ({
+    searchModel: '',
+    search: '',
+    pagination: {}
+  }),
+  computed: {
+    ...getState(['auth', 'services']),
+    items () {
+      return this[this.entityName]
+    },
+    loading () {
+      return this[`${this.entityName}IsFetching`]
+    },
+    itemsLength () {
+      return this[`${this.entityName}Total`]
+    }
+  },
+  watch: {
+    a11d: {
+      immediate: true,
+      handler: 'refresh'
+    },
+    entityName () {
+      this.$set(this.pagination, 'page', 1)
+      this.$set(this.pagination, 'sortBy', this.headerProp)
+      this.refresh()
+    }
+  },
+  methods: {
+    ...getMethods('services'),
+    async refresh () {
+      if (this.a11d) {
+        const count = await this[`count${this.$capitalize(this.entityName)}`]()
+        const items = await this[`fetch${this.$capitalize(this.entityName)}`]({
+          $limit: count, // this.pagination.rowsPerPage * 2,
+          $skip: 0 // (this.pagination.page - 1) * this.pagination.rowsPerPage
+        })
+      }
+    },
+    triggerSearch () {
+      this.search = this.searchModel
+    }
+  }
+}
+</script>

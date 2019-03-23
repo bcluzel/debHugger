@@ -1,0 +1,342 @@
+/*!
+ * Vue.js v2.6.8
+ * (c) 2014-2019 Evan You
+ * Released under the MIT License.
+ */
+
+/**
+ * vuex v3.1.0
+ * (c) 2019 Evan You
+ * @license MIT
+ */
+
+/*!
+  * vue-router v3.0.2
+  * (c) 2018 Evan You
+  * @license MIT
+  */
+
+/**
+ * vue-meta v1.5.8
+ * (c) 2018 Declan de Wet & Sébastien Chopin (@Atinux)
+ * @license MIT
+ */
+
+/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * vue-no-ssr v1.1.1
+ * (c) 2018-present egoist <0x142857@gmail.com>
+ * Released under the MIT License.
+ */
+
+/*!
+ * Color Thief v2.0
+ * by Lokesh Dhakar - http://www.lokeshdhakar.com
+ *
+ * Thanks
+ * ------
+ * Nick Rabinowitz - For creating quantize.js.
+ * John Schulz - For clean up and optimization. @JFSIII
+ * Nathan Spady - For adding drag and drop support to the demo page.
+ *
+ * License
+ * -------
+ * Copyright 2011, 2015 Lokesh Dhakar
+ * Released under the MIT license
+ * https://raw.githubusercontent.com/lokesh/color-thief/master/LICENSE
+ *
+ */
+
+/*!
+ * quantize.js Copyright 2008 Nick Rabinowitz.
+ * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+ */
+
+/*!
+ * Block below copied from Protovis: http://mbostock.github.com/protovis/
+ * Copyright 2010 Stanford Visualization Group
+ * Licensed under the BSD License: http://www.opensource.org/licenses/bsd-license.php
+ */
+
+/*!************************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/debug/node_modules/ms/index.js ***!
+  \************************************************************************************************/
+
+/*! no static exports found */
+
+/*!**************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/debug/src/browser.js ***!
+  \**************************************************************************************/
+
+/*! ./common */
+
+/*! ./../../process/browser.js */
+
+/*!*************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/debug/src/common.js ***!
+  \*************************************************************************************/
+
+/*! ms */
+
+/*!**********************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/events/events.js ***!
+  \**********************************************************************************/
+
+/*!****************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/jwt-decode/lib/atob.js ***!
+  \****************************************************************************************/
+
+/*!*****************************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/jwt-decode/lib/base64_url_decode.js ***!
+  \*****************************************************************************************************/
+
+/*! ./atob */
+
+/*!*****************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/jwt-decode/lib/index.js ***!
+  \*****************************************************************************************/
+
+/*! ./base64_url_decode */
+
+/*!************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/process/browser.js ***!
+  \************************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/qs/lib/formats.js ***!
+  \***********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/qs/lib/index.js ***!
+  \*********************************************************************************/
+
+/*! ./stringify */
+
+/*! ./parse */
+
+/*! ./formats */
+
+/*!*********************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/qs/lib/parse.js ***!
+  \*********************************************************************************/
+
+/*! ./utils */
+
+/*!*************************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/qs/lib/stringify.js ***!
+  \*************************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** /Users/daffl/Development/feathersjs/feathers/node_modules/qs/lib/utils.js ***!
+  \*********************************************************************************/
+
+/*!***************************************************!*\
+  !*** ../authentication-client/lib/hooks/index.js ***!
+  \***************************************************/
+
+/*! ./populate-header */
+
+/*! ./populate-access-token */
+
+/*! ./populate-entity */
+
+/*!*******************************************************************!*\
+  !*** ../authentication-client/lib/hooks/populate-access-token.js ***!
+  \*******************************************************************/
+
+/*!*************************************************************!*\
+  !*** ../authentication-client/lib/hooks/populate-entity.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ../authentication-client/lib/hooks/populate-header.js ***!
+  \*************************************************************/
+
+/*!*********************************************!*\
+  !*** ../authentication-client/lib/index.js ***!
+  \*********************************************/
+
+/*! ./hooks/index */
+
+/*! ./passport */
+
+/*!************************************************!*\
+  !*** ../authentication-client/lib/passport.js ***!
+  \************************************************/
+
+/*! @feathersjs/errors */
+
+/*! jwt-decode */
+
+/*! debug */
+
+/*!*********************************************!*\
+  !*** ../authentication-client/lib/utils.js ***!
+  \*********************************************/
+
+/*!*******************************!*\
+  !*** ../commons/lib/hooks.js ***!
+  \*******************************/
+
+/*!*******************************!*\
+  !*** ../commons/lib/index.js ***!
+  \*******************************/
+
+/*! ./hooks */
+
+/*!*******************************!*\
+  !*** ../commons/lib/utils.js ***!
+  \*******************************/
+
+/*! ./../../../node_modules/process/browser.js */
+
+/*!******************************!*\
+  !*** ../errors/lib/index.js ***!
+  \******************************/
+
+/*!**************************************!*\
+  !*** ../feathers/lib/application.js ***!
+  \**************************************/
+
+/*! @feathersjs/commons */
+
+/*! uberproto */
+
+/*! ./events */
+
+/*! ./version */
+
+/*!*********************************!*\
+  !*** ../feathers/lib/events.js ***!
+  \*********************************/
+
+/*! events */
+
+/*!*************************************!*\
+  !*** ../feathers/lib/hooks/base.js ***!
+  \*************************************/
+
+/*!**************************************!*\
+  !*** ../feathers/lib/hooks/index.js ***!
+  \**************************************/
+
+/*! ./base */
+
+/*!********************************!*\
+  !*** ../feathers/lib/index.js ***!
+  \********************************/
+
+/*! ./application */
+
+/*!**********************************!*\
+  !*** ../feathers/lib/version.js ***!
+  \**********************************/
+
+/*!*******************************************************!*\
+  !*** ../feathers/node_modules/uberproto/lib/proto.js ***!
+  \*******************************************************/
+
+/*!*************************************!*\
+  !*** ../primus-client/lib/index.js ***!
+  \*************************************/
+
+/*! @feathersjs/transport-commons/client */
+
+/*!*************************************************!*\
+  !*** ../rest-client/lib/angular-http-client.js ***!
+  \*************************************************/
+
+/*!*************************************!*\
+  !*** ../rest-client/lib/angular.js ***!
+  \*************************************/
+
+/*!***********************************!*\
+  !*** ../rest-client/lib/axios.js ***!
+  \***********************************/
+
+/*!**********************************!*\
+  !*** ../rest-client/lib/base.js ***!
+  \**********************************/
+
+/*! qs */
+
+/*!***********************************!*\
+  !*** ../rest-client/lib/fetch.js ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** ../rest-client/lib/index.js ***!
+  \***********************************/
+
+/*! ./jquery */
+
+/*! ./superagent */
+
+/*! ./request */
+
+/*! ./fetch */
+
+/*! ./axios */
+
+/*! ./angular */
+
+/*! ./angular-http-client */
+
+/*!************************************!*\
+  !*** ../rest-client/lib/jquery.js ***!
+  \************************************/
+
+/*!*************************************!*\
+  !*** ../rest-client/lib/request.js ***!
+  \*************************************/
+
+/*!****************************************!*\
+  !*** ../rest-client/lib/superagent.js ***!
+  \****************************************/
+
+/*!***************************************!*\
+  !*** ../socketio-client/lib/index.js ***!
+  \***************************************/
+
+/*!**************************************!*\
+  !*** ../transport-commons/client.js ***!
+  \**************************************/
+
+/*! ./lib/client */
+
+/*!******************************************!*\
+  !*** ../transport-commons/lib/client.js ***!
+  \******************************************/
+
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+
+/*! @feathersjs/feathers */
+
+/*! @feathersjs/authentication-client */
+
+/*! @feathersjs/rest-client */
+
+/*! @feathersjs/socketio-client */
+
+/*! @feathersjs/primus-client */
+
+/*! https://mths.be/utf8js v2.1.2 by @mathias */
+
+/* @preserve
+ * Leaflet 1.4.0, a JS library for interactive maps. http://leafletjs.com
+ * (c) 2010-2018 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ */
