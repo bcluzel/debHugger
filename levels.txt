@@ -1,0 +1,63 @@
+--Essentiel
+#gérer les listes
+--Amélioration possibles
+#gérer les fonctions
+
+l = [0, 1, 2, 3, 4, 5, 6, 7]
+n = len(l)
+s = 0
+for i in range(0, n):
+	s = s + l[i]
+result = s/n
+
+[{
+	n: 7
+},{
+	n: 7
+	s: 0
+},{
+	n: 7
+	s: 0
+	i: 0
+},{
+	n: 7
+	s: 0
+	i: 0
+},{
+	n: 7
+	s: 0
+	i: 0
+},{
+	n: 7
+	s: 1
+	i: 1
+},{
+	n: 7
+	s: 3
+	i: 2
+},{
+	n: 7
+	s: 6
+	i: 3
+},{
+	n: 7
+	s: 10
+	i: 4
+},{
+	n: 7
+	s: 15
+	i: 5
+},{
+	n: 7
+	s: 21
+	i: 6
+},{
+	n: 7
+	s: 28
+	i: 7
+},{
+	n: 7
+	s: 0
+	i: 0
+}
+]
