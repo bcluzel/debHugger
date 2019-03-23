@@ -1,0 +1,17 @@
+Déroulement coté user :
+1/Arrivé sur le site
+2/Login ou essai permier niveau  -> Juste premier niveau pour le concours
+
+  But pédagogique :
+    Le site permet d'appréhender les bases et la logique derriére  la programation.
+  But du jeu:
+    Le joueur doit passer à travers plusieurs niveau pour terminer le jeu.
+    Le niveau :
+      Une sidebar avec le code sur la gauche
+      Une zone ou on drag/drop les varialbes a droite
+  Phase de jeu :
+    Pour gagner un niveau l'utilisateur doit faire du "debug manuel"
+    Il doit essayer de deviner l'état des variables a l'etat suivant !
+    Il drag and drop l'état des variables dans une zone
+    On teste si c'est la bonne valeur si oui -> on déplace la fléche.
+    On continu jusqu'a la fin du programme.
