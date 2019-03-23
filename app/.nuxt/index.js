@@ -11,7 +11,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_nuxtvuexroutersync_4f309686 from 'nuxt_plugin_nuxtvuexroutersync_4f309686' // Source: ./nuxt-vuex-router-sync.js (mode: 'client')
+import nuxt_plugin_nuxtvuexroutersync_3f01278e from 'nuxt_plugin_nuxtvuexroutersync_3f01278e' // Source: ./nuxt-vuex-router-sync.js (mode: 'client')
 import nuxt_plugin_vuetify_d6afc2c2 from 'nuxt_plugin_vuetify_d6afc2c2' // Source: ../plugins/vuetify.js (mode: 'all')
 import nuxt_plugin_ssr_3a86d4ca from 'nuxt_plugin_ssr_3a86d4ca' // Source: ../plugins/ssr.js (mode: 'all')
 import nuxt_plugin_nossr_471a657b from 'nuxt_plugin_nossr_471a657b' // Source: ../plugins/no-ssr.js (mode: 'client')
@@ -153,7 +153,7 @@ async function createApp(ssrContext) {
   if (typeof nuxt_plugin_ssr_3a86d4ca === 'function') await nuxt_plugin_ssr_3a86d4ca(app.context, inject)
 
   if (process.client) {
-    if (typeof nuxt_plugin_nuxtvuexroutersync_4f309686 === 'function') await nuxt_plugin_nuxtvuexroutersync_4f309686(app.context, inject)
+    if (typeof nuxt_plugin_nuxtvuexroutersync_3f01278e === 'function') await nuxt_plugin_nuxtvuexroutersync_3f01278e(app.context, inject)
     if (typeof nuxt_plugin_nossr_471a657b === 'function') await nuxt_plugin_nossr_471a657b(app.context, inject)
   }
 
