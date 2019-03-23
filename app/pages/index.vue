@@ -46,7 +46,7 @@
               LCol(xs2)
                 v-btn(icon @click="changeState(i)")
                   v-icon(v-if="state")
-                    | edit
+                    | edit
                   v-icon(v-else)
                     | check
 </template>
@@ -79,11 +79,18 @@ export default {
       this.variable = ''
       this.value = ''
     },
-  
-  changeState (i) {
-     if (this.memory[i].state) this.memory[i].state = false
-    else this.memory[i].state = true 
-  }
+    changeState (i) {
+      if (this.memory[i].state) this.memory[i].state = false
+      else this.memory[i].state = true 
+    },
+    getDict () {
+      const memory_size = length(memory)
+      var dict = {}
+      for (i = 0; i < memory_size; i++) {
+        dict.set(this.memory[i].variable, this.memory[i].value)
+      }
+      return dict
+    }
   }
 }
 </script>
