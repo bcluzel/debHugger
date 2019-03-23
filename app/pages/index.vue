@@ -46,7 +46,7 @@
               LCol(xs2)
                 v-btn(icon @click="changeState(i)")
                   v-icon(v-if="state")
-                    | edit
+                    | edit
                   v-icon(v-else)
                     | check
               LCol(xs2)
@@ -93,6 +93,15 @@ export default {
     },
     valuePop (i) {
       this.memory.splice(i);
+    },
+    getDict () {
+      const memory_size = length(memory)
+      var dict = {}
+      for (i = 0; i < memory_size; i++) {
+        dict.set(this.memory[i].variable, this.memory[i].value)
+      }
+      return dict
+
     }
   }
 }
