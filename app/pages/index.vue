@@ -49,6 +49,10 @@
                     | edit
                   v-icon(v-else)
                     | check
+              LCol(xs2)
+                v-btn(icon @click="valuePop(i)")
+                  v-icon()
+                    | remove
 </template>
 
 <script>
@@ -86,6 +90,9 @@ export default {
     },
     changeState (i) {
       this.memory[i].state = !this.memory[i].state
+    },
+    valuePop (i) {
+      this.memory.splice(i);
     }
   }
 }
