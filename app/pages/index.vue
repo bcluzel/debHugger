@@ -83,11 +83,10 @@ export default {
       this.variable = ''
       this.value = ''
       this.nextStep()
+    },
+    changeState (i) {
+      this.memory[i].state = !this.memory[i].state
     }
-  },
-  changeState (i) {
-     if (this.memory[i].state) this.memory[i].state = false
-    else this.memory[i].state = true
   }
 }
 </script>
