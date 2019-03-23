@@ -1,7 +1,7 @@
 <template lang="pug">
   ToolbarBase
     template(v-if="!searchIsActive")
-      ToolbarSideIcon(v-if="Object.keys($setup.links).length > $setup.tabsCount")
+      ToolbarSideIcon
       ToolbarLogo
       ToolbarTitle
       v-spacer

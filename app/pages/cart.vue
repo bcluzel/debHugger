@@ -1,6 +1,6 @@
 <template lang="pug">
   LMain
-    | FAQ
+    | Panier
 </template>
 
 <script>
@@ -8,6 +8,6 @@ import mixinPage from '@/mixins/page'
 
 export default {
   mixins: [mixinPage],
-  description: 'FAQ Page Description'
+  description: 'Panier Page Description'
 }
 </script>

@@ -1,4 +1,4 @@
-/* 
+/*
  * File containing fucntions that need to be implemented
  * */
 
@@ -11,7 +11,7 @@ i++
 
 var instructions = [
 	{ i : 0 },
-	{ i : 1 }
+	{ i : 1 },
 ];
 
 var num_instructions = instructions.length();
@@ -33,18 +33,23 @@ function next_instruction() {
 	update_arrow();
 }
 
-// TODO : implement
-function dict_equals(dict1, dict2) {
-	return True;
-}
-
 // @brief Update the arrow pointing the current instruction
 // TODO : implement
 function update_arrow() {
 
 }
 
-/* 
+function dict_equals(dic1, dic2) {
+	let rep = 1;
+	for (let propriety in dic1) {
+	  if(dic1[propriety] != dic2[propriety]){
+	    rep = 0;
+	  }
+	}
+	return rep;
+}
+
+/*
  * Tell the player he won.
  * TODO : implement
  * */

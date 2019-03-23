@@ -2,7 +2,7 @@
   v-app(:dark="themeDark")
     AppNav.hidden-md-and-up
     AppOverlay
-    AppDrawer(v-if="Object.keys($setup.links).length > $setup.tabsCount")
+    AppDrawer
     AppToolbar
     v-content
       AppAuth

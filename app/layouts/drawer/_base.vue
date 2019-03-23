@@ -1,11 +1,9 @@
 <template lang="pug">
-  v-navigation-drawer.hidden-md-and-up(
+  v-navigation-drawer(
     v-model="isActive"
     app
-    disable-route-watcher
-    disable-resize-watcher
-    temporary
-    :width="240")
+    :width="240"
+    clipped)
     slot
 </template>
 
