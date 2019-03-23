@@ -31,7 +31,7 @@
             h2.title Mémoire
           v-card-text
             LRow(
-              v-for="({ variable, value }, i) in memory"
+              v-for="({ variable, value, state }, i) in memory"
               :key="i"
               justify-center
               align-center)
@@ -41,12 +41,14 @@
                 v-text-field(
                   :label="value"
                   hide-details
-                  solo
-                  disabled)
+                  :solo="state"
+                  :disabled="state")
               LCol(xs2)
-                v-btn(icon)
-                  v-icon
+                v-btn(icon @click="changeState(i)")
+                  v-icon(v-if="state")
                     | edit
+                  v-icon(v-else)
+                    | check
 </template>
 
 <script>
@@ -72,14 +74,20 @@ export default {
     add () {
       const variable = this.variable
       const value = this.value
+      const state = true
       this.memory.push({
         variable,
-        value
+        value,
+        state
       })
       this.variable = ''
       this.value = ''
       this.nextStep()
     }
+  },
+  changeState (i) {
+     if (this.memory[i].state) this.memory[i].state = false
+    else this.memory[i].state = true
   }
 }
 </script>
