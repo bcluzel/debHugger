@@ -1,2 +1,7 @@
 app/.nuxt
 app/node_modules
+yarn.lock
+app/.nuxt/index.js
+app/.nuxt/index.js
+app/.nuxt/router.js
+node_modules/.yarn-integrity

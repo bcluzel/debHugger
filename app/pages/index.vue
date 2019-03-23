@@ -51,6 +51,8 @@
                   v-icon
                     | add
               v-spacer
+        v-btn(@click="check_memory")
+          | Check
       LCol(xs6)
         v-card(width="100%" min-height="500px")
           v-card-title.text-xs-center.d-block
@@ -72,17 +74,20 @@
                   single-line
                   :value="value")
                 v-text-field(
-                  v-else
-                  :label="value"
+                  :value="value"
                   hide-details
                   :solo="state"
                   :disabled="state")
               LCol(xs2)
                 v-btn(icon @click="changeState(i)")
                   v-icon(v-if="state")
-                    | edit
+                    | edit
                   v-icon(v-else)
                     | check
+              LCol(xs2)
+                v-btn(icon @dblclick="valuePop(i)")
+                  v-icon()
+                    | remove
 </template>
 
 <script>
@@ -102,7 +107,11 @@ export default {
     variable: null,
     value: null,
     memory: [],
+<<<<<<< HEAD
     mode: false
+=======
+    dict_test: { i : 0, j : 2 }
+>>>>>>> 4971c4733bd243869fd64117e17e77710c6533c3
   }),
   methods: {
     ...getMethods('debhugger'),
@@ -117,10 +126,42 @@ export default {
       })
       this.variable = ''
       this.value = ''
-      this.nextStep()
     },
     changeState (i) {
       this.memory[i].state = !this.memory[i].state
+    },
+    valuePop (i) {
+      this.memory.splice(i);
+    },
+    getDict () {
+      const memory_size = this.memory.length
+      var dict = {}
+      for (let i = 0; i < memory_size; i++) {
+        dict[this.memory[i].variable] = this.memory[i].value;
+      }
+      return dict
+    },
+    check_memory() {
+      const current_dict = this.getDict()
+      // TODO : remplacer dict_test
+      if (this.dict_equals(this.dict_test, current_dict)) {
+        this.nextStep()
+        if (this.active == this.memory.length) {
+          this.finish();
+        }
+      }
+    },
+    dict_equals(dic1, dic2) {
+      let rep = 1;
+      for (let propriety in dic1) {
+        if(dic1[propriety] != dic2[propriety]){
+          rep = 0;
+        }
+      }
+      return rep;
+    },
+    finish() {
+      alert('VOUS AVEZ FINI')
     }
   }
 }
