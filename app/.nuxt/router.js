@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _7741ab66 = () => interopDefault(import('../pages/account.vue' /* webpackChunkName: "pages/account" */))
-const _12cd8eb0 = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
-const _0cb05072 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _d83faf4a = () => interopDefault(import('../pages/account.vue' /* webpackChunkName: "pages/account" */))
+const _2894093c = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
+const _50d57a00 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
 
@@ -82,15 +82,15 @@ export function createRouter() {
 
     routes: [{
       path: "/account",
-      component: _7741ab66,
+      component: _d83faf4a,
       name: "account"
     }, {
       path: "/cart",
-      component: _12cd8eb0,
+      component: _2894093c,
       name: "cart"
     }, {
       path: "/",
-      component: _0cb05072,
+      component: _50d57a00,
       name: "index"
     }],
 

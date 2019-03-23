@@ -5,6 +5,7 @@
 // Global varibles
 
 var sourceCode = `
+<<<<<<< HEAD
 i = 1
 i = i + 1
 while (i<4) {
@@ -13,21 +14,40 @@ while (i<4) {
 if (i > 6) {
 	answer = "HackBX"
 }
+=======
+i = 0
+i++
+>>>>>>> ef668d9a9ab8c854b9c4f696c1cb48946683f017
 `;
 
-var current_instruction = 0;
+var instructions = [
+	{ i : 0 },
+	{ i : 1 },
+];
 
+var num_instructions = instructions.length();
+var id_current_instruction = 0;
 
 // @param memory : dictionnaire
 function check_memory(memory) {
 	if (dict_equals(memory, current_instruction_answer)) {
-		next_instruction()
+		next_instruction();
+		if (id_current_instruction == num_instructions) {
+			finish();
+		}
 	}
 }
 
 // TODO : implement
 function next_instruction() {
-	current_instruction += 1;
+	id_current_instruction++;
+	update_arrow();
+}
+
+// @brief Update the arrow pointing the current instruction
+// TODO : implement
+function update_arrow() {
+
 }
 
 function dict_equals(dic1, dic2) {
@@ -42,6 +62,7 @@ function dict_equals(dic1, dic2) {
 
 /*
  * Tell the player he won.
+ * TODO : implement
  * */
 function finish() {
 
