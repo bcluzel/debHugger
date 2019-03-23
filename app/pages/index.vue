@@ -107,11 +107,8 @@ export default {
     variable: null,
     value: null,
     memory: [],
-<<<<<<< HEAD
-    mode: false
-=======
+    mode: false,
     dict_test: { i : 0, j : 2 }
->>>>>>> 4971c4733bd243869fd64117e17e77710c6533c3
   }),
   methods: {
     ...getMethods('debhugger'),
