@@ -154,7 +154,6 @@ export default {
     value: null,
     memory: [],
     mode: false,
-    dict_test: { i : 0, j : 2 },
     confetti:require('canvas-confetti'),
     finished: false
   }),
@@ -234,6 +233,9 @@ export default {
     finish() {
         this.finished = true
         this.confetti()
+        if (this.level + 1 != this.levels.length){
+          this.nextLevel()
+        }
     },
     nextLevel() {
         if (this.level + 1 == this.levels.length) alert("Il n'y a plus de niveaux suivants !")

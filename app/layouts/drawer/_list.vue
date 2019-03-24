@@ -11,8 +11,7 @@
           v-icon(color="primary") forward
         v-list-tile-action(v-else)
         v-list-tile-content
-          v-list-tile-title
-            | {{ name }}
+          v-list-tile-title(v-html="name")
       v-list-group(
         v-else
         :value="i === active")
