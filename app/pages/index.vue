@@ -1,5 +1,16 @@
 <template lang="pug">
   LMain(style="max-width: 800px")
+    LRow(justify-center align-center)
+        v-btn(@click="previousLevel"
+            :disabled="level === 0")
+            v-icon
+                | fast_rewind
+        h1.title.mx-3 {{ level }}
+        v-btn(@click="nextLevel"
+            :disabled="level === levels.length - 1")
+            v-icon
+                | fast_forward
+
     LRow
       LCol(xs6)
         LRow(justify-end)
@@ -51,51 +62,68 @@
                   v-icon
                     | add
               v-spacer
-        v-btn(@click="check_memory")
-          | Check
+        v-btn#chk(
+            @click="check_memory"
+            :disabled="finished"
+            )
+            | Check
       LCol(xs6)
         v-card(width="100%" min-height="500px")
           v-card-title.text-xs-center.d-block
             h2.title Mémoire
           v-card-text
             LRow(
-              v-for="({ variable, value, state }, i) in memory"
-              :key="i"
-              justify-center
-              align-center)
-              LCol(xs2)
-                  sup.d-flex.justify-end(style="width: 100%") {{ variable }}
-              LCol()
-                v-combobox(
-                  v-if="Array.isArray(value)"
-                  :label="variable"
-                  multiple
-                  chips
-                  single-line
-                  :value="value")
-                v-text-field(
-                  :value="value"
-                    @input="memory[i].value = $event"
-                  hide-details
-                  :solo="state"
-                  :disabled="state")
-              LCol(xs2)
-                v-btn(icon @click="changeState(i)")
-                  v-icon(v-if="state")
-                    | edit
-                  v-icon(v-else)
-                    | check
-              LCol(xs2)
-                v-btn(icon @dblclick="valuePop(i)")
-                  v-icon()
-                    | remove
+                v-for="({ variable, value, state }, i) in memory"
+                :key="i"
+                justify-center
+                align-center
+                )
+                //- LCol(xs2)
+                    sup.d-flex.justify-end(style="width: 100%") {{ variable }}
+                LCol()
+                    v-combobox(
+                        v-if="Array.isArray(value)"
+                        :label="variable"
+                        multiple
+                        chips
+                        single-line
+                        :value="value")
+                    //- v-text-field( 
+                        :value="value"
+                            @input="memory[i].value = $event"
+                        hide-details
+                        :solo="state"
+                        :disabled="state") 
+                    
+                v-chip(
+                    contenteditable
+                    close
+                    @keypress.enter.stop=""
+                    @input="valuePop(i)"
+                    )
+                    v-avatar(
+                        class="teal"                     
+                        )
+                        | {{ variable }}
+                    | {{ value }}
+                //- LCol(xs2)
+                    v-btn(icon @click="changeState(i)")
+                    v-icon(v-if="state")
+                        | edit
+                    v-icon(v-else)
+                        | check
+                //- LCol(xs2)
+                    v-btn(icon @dblclick="valuePop(i)")
+                    v-icon()
+                        | remove
 </template>
 
 <script>
 import mixinPage from '@/mixins/page'
 import SelfForm from '@/components/form'
 import {
-  getMethods
+  getMethods,
+  getState
 } from '@/storeInterface'
 
 export default {
@@ -109,10 +137,16 @@ export default {
     value: null,
     memory: [],
     mode: false,
-    dict_test: { i : 0, j : 2 }
+    dict_test: { i : 0, j : 2 },
+    confetti:require('canvas-confetti'),
+    finished: false
   }),
+  computed: {
+    ...getState('debhugger')
+  },
   methods: {
     ...getMethods('debhugger'),
+    ...getMethods('snackbar', true),
     add () {
       const variable = this.variable
       const value = this.value
@@ -128,6 +162,7 @@ export default {
     changeState (i) {
       this.memory[i].state = !this.memory[i].state
     },
+    // FIXME : cette fonction supprime parfois trop d'élements
     valuePop (i) {
       this.memory.splice(i);
     },
@@ -141,12 +176,19 @@ export default {
     },
     check_memory() {
       const current_dict = this.getDict()
-      // TODO : remplacer dict_test
-      if (this.dict_equals(this.dict_test, current_dict)) {
+      if (this.dict_equals(this.levels[this.level][1][this.active][1], current_dict)) {
         this.nextStep()
-        if (this.active == this.memory.length) {
-          this.finish();
+        this.snackbarSet({
+            content: 'Bravooooo',
+            color: 'green'
+        })
+        if (this.active === -1) {
+          this.finish()
         }
+      } else {
+          this.snackbarSet({
+              content: 'Try again bro'
+          })
       }
     },
     dict_equals(dic1, dic2) {
@@ -159,7 +201,22 @@ export default {
       return rep;
     },
     finish() {
-      alert('VOUS AVEZ FINI')
+        this.finished = true
+        this.confetti()
+    },
+    nextLevel() {
+        if (this.level + 1 == this.levels.length) alert("Il n'y a plus de niveaux suivants !")
+        else this.setLevel(this.level + 1)
+        this.setActive(0)
+        this.memory = []
+        this.finished = false
+    },
+    previousLevel() {
+        if (this.level == 0) alert("Il n'y a plus de niveaux précedent !")
+        else this.setLevel(this.level - 1)
+        this.setActive(0)
+        this.memory = []
+        this.finished = false
     }
   }
 }

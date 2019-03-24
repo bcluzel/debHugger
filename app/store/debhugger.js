@@ -1,27 +1,40 @@
 export const baseState = {
   active: 0,
-  instructions: [
-    'a = 0',
-    'a++',
-    'b = a + 4',
-    {
-      name: 'for in in [1-5]',
-      active: 0,
-      times: 5,
-      instructions: [
-        'a++',
-        'b--'
+  levels: [
+    [
+      [
+        "i = 0",
+        "i++",
+        "i++"
+      ],
+      [
+        [1, { i : 0 }],
+        [2, { i : 1 }],
+        [-1, { i : 2 }]
       ]
-    }
+    ],
+    [
+      [
+        "j = 1",
+        "k = 2",
+        "delete(k)"
+      ],
+      [
+        [1, { j : 1}],
+        [3, { j : 1, k : 2}],
+        [-1, { j : 1}]
+      ]
+    ],
+    [
+      [
+        "i = 0"
+      ],
+      [
+        [-1, {i : 0}]
+      ]
+    ]
   ],
-  memories: [{
-    a: 0
-  }, {
-    a: 1
-  }, {
-    b: 5,
-    a: 1
-  }]
+  level: 0
 }
 
 export const state = () => (baseState)
@@ -30,13 +43,11 @@ export const mutations = {
   setActive (state, value) {
     state.active = value
   },
+  setLevel (state, value) {
+    state.level = value
+  },
   nextStep (state) {
-    if (typeof state.instructions[state.active] === 'object') {
-      state.instructions[state.active].active++
-      state.instructions[state.active].active %= state.instructions[state.active].instructions.length
-    } else {
-      state.active++
-    }
+    state.active = state.levels[state.level][1][state.active][0]
   }
 }
 
@@ -45,5 +56,7 @@ export const actions = {
 }
 
 export const getters = {
-
+  instructions: (state) => {
+    return state.levels[state.level][0]
+  }
 }

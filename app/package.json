@@ -13,6 +13,7 @@
   "dependencies": {
     "@feathersjs/client": "^3.7.8",
     "camelcase": "^5.0.0",
+    "canvas-confetti": "^0.1.0",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.3.2",
     "color-thief-browser": "^2.0.2",

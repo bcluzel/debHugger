@@ -1,13 +1,14 @@
 <template lang="pug">
   v-list
     template(
-      v-for="(name, i) in instructions")
+      v-for="(name, i) in levels[level][0]")
       v-list-tile(
         v-if="typeof name === 'string'"
+        :class="i === active ? 'grey lighten-2' : undefined"
         :key="i")
         v-list-tile-action(
           v-if="i === active")
-          v-icon arrow_right_alt
+          v-icon(color="primary") forward
         v-list-tile-action(v-else)
         v-list-tile-content
           v-list-tile-title
@@ -21,7 +22,7 @@
             v-list-tile-content
               v-list-tile-title {{ name.name }}
         v-list-tile(
-          v-for="(n, j) in name.instructions"
+          v-for="(n, j) in levels[level][0]"
           :key="j")
           v-list-tile-action(
             v-if="j === name.active")
