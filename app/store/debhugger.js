@@ -38,8 +38,8 @@ export const baseState = {
           "l = [3,4,8,8,2]",
           "max = l[0]",
           "for elem in l:",
-          "&nbsp if(elem > max):",
-          "&nbsp max = elem"
+          "   if(elem > max):",
+          "     max = elem"
         ],
         [
           [(1,{ l:[3,4,8,8,2]}),
