@@ -28,7 +28,7 @@
               LCol(xs12)
                 v-combobox(
                   multiple
-                  chips
+                  var-comp
                   v-model="value"
                   label="Valeurs"
                   hide-details)
@@ -71,16 +71,29 @@
         v-card(width="100%" min-height="500px")
           v-card-title.text-xs-center.d-block
             h2.title Mémoire
-          v-card-text
+          v-card-text(justify-center)
             LRow(
                 v-for="({ variable, value, state }, i) in memory"
                 :key="i"
                 justify-center
                 align-center
                 )
+                LCol(xs12 v-if="Array.isArray(value)")
+                  list-var(
+                    :listName="variable",
+                    :vars_comp="value",
+                    @input="memory[i].value = $event"
+                    )
+                LCol(xs12 v-else)
+                  var-comp(
+                    :varName="variable",
+                    :varValue="value",
+                    @input="memory[i].value = $event"
+                    @click_deletion="valuePop(i)"
+                    )
                 //- LCol(xs2)
                     sup.d-flex.justify-end(style="width: 100%") {{ variable }}
-                LCol()
+                //-LCol()
                     v-combobox(
                         v-if="Array.isArray(value)"
                         :label="variable"
@@ -95,7 +108,7 @@
                         :solo="state"
                         :disabled="state") 
                     
-                v-chip(
+                //-v-chip(
                     contenteditable
                     close
                     @keypress.enter.stop=""
@@ -124,11 +137,15 @@ import SelfForm from '@/components/form'
 import {
   getMethods,
   getState
-} from '@/storeInterface'
+  } from '@/storeInterface'
+import Variable from '@/components/var'
+import ListVariable from '@/components/listVar'
 
 export default {
   components: {
-    'self-form': SelfForm
+    'self-form': SelfForm,
+    'var-comp': Variable,
+    'list-var': ListVariable
   },
   mixins: [mixinPage],
   description: 'Accueil Page Description',
@@ -191,6 +208,7 @@ export default {
           })
       }
     },
+    // TODO : réécrire la fonction
     dict_equals(dic1, dic2) {
       let rep = 1;
       for (let propriety in dic1) {
