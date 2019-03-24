@@ -82,7 +82,7 @@
                   list-var(
                     :listName="variable",
                     :vars_comp="value",
-                    @input="memory[i].value = $event"
+                    @input="memory[i].value[$event.i] = $event.$event"
                     )
                 LCol(xs12 v-else)
                   var-comp(
@@ -165,6 +165,13 @@ export default {
     ...getMethods('debhugger'),
     ...getMethods('snackbar', true),
     add () {
+      const current_dict = this.getDict()
+      if (Object.keys(current_dict).includes(this.variable)) {
+        this.snackbarSet({
+          content: 'This variable already exists'
+        })
+        return
+      }
       const variable = this.variable
       const value = this.value
       const state = true
@@ -212,7 +219,13 @@ export default {
     dict_equals(dic1, dic2) {
       let rep = 1;
       for (let propriety in dic1) {
-        if(dic1[propriety] != dic2[propriety]){
+        if (typeof dic1[propriety] !== typeof dic2[propriety] || 
+          (Array.isArray(dic1[propriety])
+            && Array.isArray(dic2[propriety])
+            && dic1[propriety].some((_, i) => dic1[propriety][i] !== dic2[propriety][i]))) {
+          rep = 0
+        }
+        if(dic1[propriety] !== dic2[propriety]){
           rep = 0;
         }
       }

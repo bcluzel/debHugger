@@ -1,9 +1,12 @@
 <template>
-    <div title={{ listName }}>
+    <v-card :title="listName" style="background-color: #888">
+        <v-card-title>
+            {{ listName }}
+        </v-card-title>
         <!-- Ajouter un v-bind -->
 
-        <LRow v-for="(value, i) in vars_comp">
-            <v-text-field outline :label="i.toString()" :value="value" @input="$emit('input', $event)"> </v-text-field>
+        <LRow v-for="(value, i) in vars_comp" :key="i">
+            <v-text-field hide-details outline :label="i.toString()" :value="value" @input="$emit('input', {$event, i})"> </v-text-field>
             <!-- <v-btn class="xs6" round color="info" block=true>
                 <font color="back" style="bold">
                     {{ varName }}
@@ -13,13 +16,8 @@
                 {{ varValue }}
             </v-btn>
             -->
-            <v-btn color="error" icon @click="$emit('click_deletion')">
-                <v-icon>
-                    delete
-                </v-icon>
-            </v-btn> 
         </LRow>
-    </div>
+    </v-card>
 </template>
 
 

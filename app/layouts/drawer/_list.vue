@@ -4,7 +4,7 @@
       v-for="(name, i) in levels[level][0]")
       v-list-tile(
         v-if="typeof name === 'string'"
-        :class="i === active ? 'grey lighten-2' : undefined"
+        :class="i === active ? 'lucas' : undefined"
         :key="i")
         v-list-tile-action(
           v-if="i === active")
@@ -54,3 +54,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.lucas {
+  background-color:  #00000088
+}
+</style>
