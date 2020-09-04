@@ -19,7 +19,7 @@
     "color-thief-browser": "^2.0.2",
     "esm": "^3.2.11",
     "leaflet": "^1.4.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "nuxt": "^2.2.0",
     "nuxt-vuex-router-sync": "^0.0.2",
     "pascal-case": "^2.0.1",
